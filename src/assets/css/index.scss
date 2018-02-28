@@ -1,0 +1,74 @@
+@charset "UTF-8";
+*{
+  padding: 0px;
+  margin: 0px;
+}
+body{
+  width: 100%;
+  height: 100%;
+  background: #000000c4;
+}
+input, button, select, textarea {
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+@function rem($px) {
+  @return $px/46.875+rem
+}
+header{
+  width: 100%;
+  margin-top: 30px;
+  section{
+    width: 100%;
+    .banner{
+        width: 100%;
+      height: rem(520);
+      background: url("../image/login.png");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .form{
+      width: rem(520);
+      overflow: hidden;
+      margin: auto;
+      li{
+        margin: auto;
+        position: relative;
+        display: block;
+        width: rem(520);
+        height: rem(80);
+        margin-top: 20px;
+        border-bottom: 1px solid #fff;
+        input{
+          position: absolute;
+          width: rem(520);
+          height: rem(80);
+          background-color: rgba(0,0,0,0);
+          margin-top: 10px;
+          margin: 0px;
+          border: none;
+          font-size: 24px;
+        }
+        div{
+          position: absolute;
+          left: 0%;
+          bottom: -1px;
+          height: 2px;
+          background: red;
+        }
+      }
+    }
+  }
+  .login{
+    margin: auto;
+    margin-top: rem(130);
+    width: rem(200);
+    height: rem(200);
+    color: #fff;
+    background-color: #000;
+    border-radius: 50%;
+    text-align: center;
+    line-height: rem(200);
+  }
+}
