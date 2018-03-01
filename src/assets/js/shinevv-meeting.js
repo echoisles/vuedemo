@@ -1,12 +1,13 @@
 export default function Meeting(opts){
   let shinevv = null,
-      self = this
+      self = this;
   let default_opts = {
     roomId:0,
     localMemberId:parseInt(Math.random()*9999999+1).toString(),
     displayName:"亮眼云",
     server:'vvroom.shinevv.cn',
     port:3443,
+    onBeforeJoinRoom:function(){},
     onJoinSuccess:function () {},
     onJoinFail:function(){},
     onNewMemberJoined:function(){},
@@ -17,7 +18,8 @@ export default function Meeting(opts){
 
   function startMeeting(){
     shinevv = new Shinevv(opts.localMemberId, opts.displayName, opts.server, opts.port);
-    self.shinevv = shinevv
+    self.shinevv = shinevv;
+    opts.onBeforeJoinRoom();
     shinevv.joinRoom(
         opts.roomId,
         true,
@@ -28,7 +30,7 @@ export default function Meeting(opts){
         function(reason){
           console.log('joinRoom onFail reason = %s',reason);
 
-          opts.onJoinFail(reason)
+          opts.onJoinFail(reason);
 
           shinevv.leaveRoom();
 
@@ -106,12 +108,12 @@ export default function Meeting(opts){
     shinevv.enableWebcam();
   }
 
-  this.startMeeting = startMeeting
-  this.stopMeeting = stopMeeting
-  this.muteAudio = muteAudio
-  this.unMuteAudio = unMuteAudio
-  this.disableVideo = disableVideo
-  this.enableVideo = enableVideo
+  this.startMeeting = startMeeting;
+  this.stopMeeting = stopMeeting;
+  this.muteAudio = muteAudio;
+  this.unMuteAudio = unMuteAudio;
+  this.disableVideo = disableVideo;
+  this.enableVideo = enableVideo;
 
 
 
