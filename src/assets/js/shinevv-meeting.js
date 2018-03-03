@@ -9,9 +9,9 @@ export default function Meeting(opts){
     port:3443,
     onBeforeJoinRoom:function(){},
     onJoinSuccess:function () {},
-    onJoinFail:function(){},
-    onNewMemberJoined:function(){},
-    onMemberLeft:function(){}
+    onJoinFail:function(reason){},
+    onNewMemberJoined:function(remote_memberId, displayName){},
+    onMemberLeft:function(remote_memberId, displayName){}
   }
 
   opts = Object.assign(default_opts,opts);

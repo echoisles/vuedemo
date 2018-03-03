@@ -1,28 +1,47 @@
 <template>
-    <header>
-        <section>
-            <div class="banner"></div>
-            <ul class="form">
-                <li>
-                    <input type="text" v-model="form.nickname" placeholder="昵称">
-                    <div></div>
-                </li>
-                <li>
-                    <input type="text" v-model="form.room_id" placeholder="房间号">
-                    <div></div>
-                </li>
-            </ul>
-        </section>
-        <div class="login">
-            <div class="btn" @click="submit()">登录</div>
-        </div>
-    </header>
+ <div class="container">
+   <img class="img-responsive center-block"  src="../assets/image/login.png" alt="">
+   <div class="blank"></div>
+   <form>
+     <div class="form-group row">
+       <div class="col-lg-offset-3 col-lg-6">
+         <input type="text" class="form-control" id="nickname" placeholder="昵称" v-model="form.nickname">
+       </div>
+     </div>
+     <div class="form-group row">
+       <div class="col-lg-offset-3 col-lg-6">
+         <input type="text" class="form-control" id="room_id"  placeholder="房间号"  v-model="form.room_id">
+       </div>
+     </div>
+     <div class="form-group">
+       <div>
+         <button type="button" class="btn btn-radius center-block"  @click="submit()">登 录</button>
+       </div>
+     </div>
+   </form>
+ </div>
 </template>
-<style scoped>
-    @import '../assets/css/index.css';
+<style>
+  .blank{height:12vh}
+  .form-control {
+    background-color:rgba(0, 0, 0, 0);
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+  }
+  .btn-radius{
+    background: black;
+    color:#ffffff;
+    border-radius: 50%;
+    font-size: 1.5em;
+    width:4em;
+    height:4em;
+  }
 </style>
 <script>
-  import $ from 'jquery'
   import Cookie from 'js-cookie'
   export default {
     data(){
