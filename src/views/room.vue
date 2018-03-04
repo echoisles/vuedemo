@@ -36,7 +36,7 @@
 <style>
   .bg-logo {
     background-color:#3B3B3B;
-    background-image: url(/static/image/login.png);
+    background-image: url(../../static/image/login.png);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position:center;

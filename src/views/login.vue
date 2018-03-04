@@ -1,6 +1,6 @@
 <template>
  <div class="container">
-   <img class="img-responsive center-block" src="/static/image/login.png" alt="">
+   <img class="img-responsive center-block" src="../../static/image/login.png" alt="">
    <div class="blank"></div>
    <form>
      <div class="form-group row">
@@ -55,7 +55,11 @@
     methods:{
       submit(){
         //TODO::表单验证
-        let form = this.form
+        if (!this.form.room_id) {
+          alert("请输入房间号");
+          return false;
+        }
+        let form = this.form;
         form.member_id = parseInt(Math.random()*9999999+1).toString()
         Cookie.set('user_info',form)
         //跳转
