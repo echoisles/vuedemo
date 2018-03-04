@@ -6,7 +6,9 @@
         <div data-component="Notifications"></div>
         <div class="room-link-wrapper">
           <div class="room-link">
-            <a @click="local_member_left()" class="link" title="退出房间"><img width="20px" src="../assets/image/icon/leave2.svg" alt=""></a>
+            <a @click="local_member_left()" class="link" title="退出房间"><img width="20px"
+                                                                           src="/static/image/icon/leave2.svg"
+                                                                           alt=""></a>
           </div>
         </div>
         <div data-component="Peers">
@@ -24,12 +26,9 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
-
 </template>
 <style scoped>
   @import '../assets/css/mediasoup-demo-app.css';
@@ -37,10 +36,9 @@
 <style>
   .bg-logo {
     background-color:#3B3B3B;
-    background-image: url(../assets/image/login.png);
+    background-image: url(/static/image/login.png);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    /*background-size: cover;*/
     background-position:center;
     background-size:40%
   }

@@ -1,6 +1,6 @@
 <template>
  <div class="container">
-   <img class="img-responsive center-block"  src="../assets/image/login.png" alt="">
+   <img class="img-responsive center-block" src="/static/image/login.png" alt="">
    <div class="blank"></div>
    <form>
      <div class="form-group row">
