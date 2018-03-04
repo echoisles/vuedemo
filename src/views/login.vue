@@ -62,7 +62,7 @@
         let form = this.form;
         form.member_id = parseInt(Math.random()*9999999+1).toString()
         Cookie.set('user_info',form)
-        //跳转
+        //进入房间
         this.$router.push({path:'room',query:{room_id:form.room_id}})
       }
     }

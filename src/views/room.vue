@@ -1,14 +1,13 @@
 <template>
   <div class="bg-logo">
-    <header></header>
+    <!--<header style="color:#fff">{{members}}</header>-->
     <div id="mediasoup-demo-app-container">
       <div data-component="Room" class="">
         <div data-component="Notifications"></div>
         <div class="room-link-wrapper">
           <div class="room-link">
-            <a @click="local_member_left()" class="link" title="退出房间"><img width="20px"
-                                                                           src="/static/image/icon/leave2.svg"
-                                                                           alt=""></a>
+            <a @click="local_member_left()" class="link" title="退出房间">
+              <img width="20px" src="../../static/image/icon/leave2.svg" alt=""></a>
           </div>
         </div>
         <div data-component="Peers">
@@ -45,15 +44,6 @@
   #mediasoup-demo-app-container [data-component='Room'] > .room-link-wrapper{
     justify-content: flex-end !important;
   }
-
-
-  /*@media (max-device-width: 720px) {*/
-  /*#mediasoup-demo-app-container [data-component='Peers'] {*/
-  /*!*flex-wrap:nowrap !important;*!*/
-  /*display: flex;*/
-  /*flex-direction: row !important;*/
-  /*}*/
-  /*}*/
 </style>
 <script>
   import Cookie from 'js-cookie'
@@ -88,11 +78,11 @@
           opts = {
             roomId: room_id,
             localMemberId: this.user_info.member_id,
-            onBeforeJoinRoom() {
-              self.local_member_join()
-            },
+            // onBeforeJoinRoom() {
+            //   self.local_member_join()
+            // },
             onJoinSuccess() {
-              // self.local_member_join()
+              self.local_member_join()
             },
             onNewMemberJoined(member_id, nickname) {
               self.remote_member_join(member_id, nickname)
@@ -107,7 +97,7 @@
 
     },
     methods: {
-      //用户本人加入房间时执行
+      //用户本人加入房间时
       local_member_join() {
         let member_id = this.user_info.member_id,
             member_info = {
@@ -118,7 +108,7 @@
               member_id: member_id
             }
         this.members.unshift(member_info)
-        this.meet.shinevv.setVideoLabel(member_id, member_info.video_id)
+        this.meet.shinevv.setVideoLabel(member_info.member_id, member_info.video_id)
       },
 
       //远程用户加入房间
@@ -129,8 +119,8 @@
           nickname: nickname,
           member_id: member_id
         }
-        this.members.unshift(member_info)
-        this.meet.shinevv.setVideoLabel(member_id, member_info.video_id)
+        this.members.push(member_info)
+        this.meet.shinevv.setVideoLabel(member_info.member_id, member_info.video_id)
       },
 
       //用户本人离开房间
@@ -150,7 +140,24 @@
         }
       },
 
-
-    }
+      // test(){
+      //   this.members.unshift({
+      //     type: 'remote',
+      //     video_id: 'video_' + this.members_count,
+      //     nickname: "test" +this.members_count ,
+      //     member_id: parseInt(Math.random()*9999999+1).toString()
+      //   })
+      // }
+    },
+    // watch:{
+    //   members(){
+    //     var self = this;
+    //     this.$nextTick(()=>{
+    //       this.members.forEach(function(member_info) {
+    //         self.meet.shinevv.setVideoLabel(member_info.member_id, member_info.video_id)
+    //       });
+    //     });
+    //   }
+    // }
   }
 </script>
