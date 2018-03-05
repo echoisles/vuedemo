@@ -2,11 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/views/login'
 import Room from '@/views/room'
+import WapRoom from '@/views/wap/room'
 import Test from '@/views/test'
+import OS from '../assets/js/agent-type'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -16,7 +18,17 @@ export default new Router({
     {
       path: '/room',
       name: 'Room',
-      component: Room
+      component: Room,
+    },
+    {
+      path: '/waproom',
+      name: 'WapRoom',
+      component: WapRoom,
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test
     },
     {
       path: '/test',
@@ -24,4 +36,7 @@ export default new Router({
       component: Test
     }
   ]
-})
+});
+
+
+export default router
