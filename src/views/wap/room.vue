@@ -1,25 +1,28 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="box-container" :class="col_xs_num" :style="{height:box_height}" v-for="(item,index) in members">
-        <video class="box" autoplay playsinline src=""
-               :id="item.video_id"
-        ></video>
+    <div class="container">
+      <div class="row">
+        <div class="box-container" :class="col_xs_num" :style="{height:box_height}" v-for="(item,index) in members">
+          <video class="box" autoplay playsinline src=""
+                 :id="item.video_id"
+          ></video>
+        </div>
       </div>
+      <br>
+      <br>
+      <footer class="footer navbar-fixed-bottom ">
+        <div>
+          <img @click="local_member_left" src="../../../static/image/icon/hangup4.svg" alt="..."
+               class="img-circle center-block hangup">
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      </footer>
     </div>
-    <br>
-    <br>
-    <footer class="footer navbar-fixed-bottom ">
-      <div>
-        <img @click="local_member_left" src="../../../static/image/icon/hangup4.svg" alt="..."
-             class="img-circle center-block hangup">
-      </div>
-      <br>
-      <br>
-      <br>
-      <br>
-    </footer>
   </div>
+
 </template>
 <style>
   .box-container {
